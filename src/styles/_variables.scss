@@ -1,0 +1,22 @@
+$smartphones: 'only screen and (max-width: 579px)';
+$smartphones_h: 'only screen and (min-device-width : 414px) and (max-device-width : 768px) and (orientation : landscape)';
+$tablets: 'only screen and (min-width: 768px) and (max-width: 959px)';
+$tablets_h: 'only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)';
+
+/** Default max width vtex checkout */
+$maxWidth: 1170px;
+
+// Color Palette
+$primaryColor: #f71963;
+$secondaryColor: #383938;
+$accentColor: #2c7efd;
+$labelColor: #717585;
+$textColor: #26272c;
+$borderColor: #d3d4d9;
+$backgroundColor: #f9f9fb;
+$lightGrayColor: #e5e5e5;
+$backgroundInputColor: #eff0f7;
+$successColor: #8bc34a;
+$dangerColor: #ff2319;
+$infoColor: #368df7;
+$warningColor: #ffb100;
