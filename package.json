@@ -9,6 +9,10 @@
     "start": "webpack --watch --progress"
   },
   "author": "Jeison Nisperuza <jnisperuza1102@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jnisperuza/custom-checkout-app.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-react": "^7.16.7",
@@ -19,12 +23,21 @@
     "mini-css-extract-plugin": "^2.4.6",
     "sass": "^1.46.0",
     "sass-loader": "^12.4.0",
-    "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.5",
+    "@mui/lab": "^5.0.0-alpha.63",
+    "@mui/material": "^5.2.7",
+    "@mui/styles": "^5.2.3",
+    "@mui/system": "^5.2.6",
+    "@mui/utils": "^5.2.3",
+    "axios": "^0.24.0",
+    "notistack": "^2.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

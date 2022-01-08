@@ -1,0 +1,21 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 3rem;
+  margin: 0;
+  padding: 0.5rem 1rem !important;
+
+  .closeBtn {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    color: $labelColor;
+    align-self: flex-end;
+    z-index: 10;
+  }
+}
