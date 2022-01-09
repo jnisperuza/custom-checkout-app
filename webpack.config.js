@@ -11,9 +11,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx|tsx)$/,
+        test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.(s(a|c)ss)$/,
@@ -28,7 +33,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.tsx'],
+    extensions: ['*', '.js', '.ts', '.jsx', '.tsx'],
   },
   plugins: [
     new MiniCssExtractPlugin({

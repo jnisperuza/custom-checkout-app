@@ -1,12 +1,11 @@
-import React, { Fragment } from 'react';
-import Cart from '../Cart';
-import CartLinks from '../CartLinks';
-import CartMoreOptions from '../CartMoreOptions';
-import CartTemplate from '../CartTemplate';
-import ClientProfileData from '../ClientProfileData';
-import PaymentData from '../PaymentData';
-import ShippingData from '../ShippingData';
-import Totalizers from '../Totalizers';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from '@mui/material/styles';
+import { SnackbarKey, SnackbarProvider } from 'notistack';
+import StyledSnackbar, { SnackbarOptions } from '../StyledSnackbars';
+import store from '../../redux/store';
+import theme from '../../theme';
+import Layout from '../Layout';
 
 /**
  * 
@@ -15,17 +14,23 @@ import Totalizers from '../Totalizers';
  * loading according to the path with the following function: getHash() from helper file.
  */
 
-const App = () => (
-    <Fragment>
-        <Cart />
-        <CartMoreOptions />
-        <CartLinks />
-        <Totalizers />
-        <ClientProfileData />
-        <ShippingData />
-        <PaymentData />
-        <CartTemplate />
-    </Fragment>
-)
+function App() {
+
+    return (
+        <Provider store={store}>
+            <ThemeProvider theme={theme}>
+                <SnackbarProvider
+                    preventDuplicate
+                    hideIconVariant
+                    maxSnack={3}
+                    content={(key: SnackbarKey, props: SnackbarOptions) => (
+                        <StyledSnackbar id={key} message={props.message} type={props.type} />
+                    )}>
+                    <Layout />
+                </SnackbarProvider>
+            </ThemeProvider>
+        </Provider>
+    )
+}
 
 export default App;

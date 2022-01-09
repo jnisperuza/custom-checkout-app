@@ -75,11 +75,76 @@ It correctly bundles React in production mode and optimizes the build for the be
 npm run build
 ```
 
+## Project structure
+
+```bash
+src/
+├── axiosInstance.tsx
+├── components
+│   ├── App
+│   │   └── index.tsx
+│   ├── Cart
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── CartLinks
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── CartMoreOptions
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── CartTemplate
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── ClientProfileData
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── HtmlTooltip
+│   │   └── index.tsx
+│   ├── PaymentData
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── ShippingData
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── StyledDialog
+│   │   ├── StyledDialog.module.scss
+│   │   ├── Title
+│   │   │   ├── Title.module.scss
+│   │   │   └── index.tsx
+│   │   └── index.tsx
+│   ├── StyledSnackbars
+│   │   ├── StyledSnackbar.module.scss
+│   │   └── index.tsx
+│   └── Totalizers
+│       ├── index.tsx
+│       └── styles.scss
+├── helpers.tsx
+├── index.tsx
+├── styles
+│   ├── _mixins.scss
+│   ├── _variables.scss
+│   └── index.scss
+└── typings.d.ts
+```
+
+### The files that you must add to the checkout from the VTEX administrator are
+
+```bash
+dist/
+├── checkout6-custom.css
+├── checkout6-custom.css.map
+├── checkout6-custom.js
+└── checkout6-custom.js.map
+```
+
 ## Learn More 🛠️
 
-- [Webpack](https://webpack.js.org/configuration/).
-- [Sass](https://sass-lang.com/).
-- [Babel](https://github.com/babel/babel-loader).
+- [React](https://es.reactjs.org/docs/getting-started.html)
+- [Webpack](https://webpack.js.org/configuration)
+- [Sass](https://sass-lang.com)
+- [Babel](https://github.com/babel/babel-loader)
+- [Axios](https://github.com/axios/axios)
+- [Material UI](https://mui.com)
 
 ## Author ✒️
 

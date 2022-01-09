@@ -1,0 +1,7 @@
+@import '../../styles/variables';
+
+.layout {
+  display: block;
+  max-width: $maxWidth;
+  margin: 0 auto;
+}
