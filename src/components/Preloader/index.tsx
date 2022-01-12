@@ -9,7 +9,7 @@ interface PreloaderProps {
     backgroundColor?: string;
 }
 
-function Preloader(props: PreloaderProps) {
+const Preloader = (props: PreloaderProps) => {
     const {
         status = 'start',
         backgroundColor,

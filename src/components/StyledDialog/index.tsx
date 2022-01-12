@@ -29,7 +29,7 @@ const CustomDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-function StyledDialog(props: StyledDialogProps) {
+const StyledDialog = (props: StyledDialogProps) => {
     const {
         open,
         title,

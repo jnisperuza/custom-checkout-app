@@ -15,7 +15,7 @@ import { loading$ } from '../../redux/UI/selectors';
 
 import styles from './Layout.module.scss';
 
-function Layout() {
+const Layout = () => {
     const loading = useSelector(loading$);
 
     return (

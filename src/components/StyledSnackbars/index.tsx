@@ -21,10 +21,10 @@ export interface StyledSnackbarProps {
     message?: string;
 }
 
-function StyledSnackbar(
+const StyledSnackbar = (
     props: StyledSnackbarProps,
     ref: ((instance: HTMLDivElement | null) => void) | RefObject<HTMLDivElement> | null | undefined
-) {
+) => {
     const { closeSnackbar } = useSnackbar();
     const {
         id,
