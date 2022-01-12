@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack --watch --progress"
+    "start": "webpack --watch --progress",
+    "serve": "webpack --progress && webpack serve"
   },
   "author": "Jeison Nisperuza <jnisperuza1102@gmail.com>",
   "repository": {
@@ -22,12 +23,14 @@
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.6",
     "sass": "^1.46.0",
     "sass-loader": "^12.4.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.7",

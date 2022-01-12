@@ -1,12 +1,23 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   entry: { ['checkout6-custom']: path.resolve(__dirname, './src/index.tsx') },
   devtool: 'source-map',
+  performance: {
+    hints: false
+  },
   watchOptions: {
     ignored: ['**/files/**/*.js', '**/node_modules'],
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
   },
   module: {
     rules: [
@@ -38,6 +49,10 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
     }),
   ],
   output: {

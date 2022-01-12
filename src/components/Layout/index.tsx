@@ -9,6 +9,8 @@ import PaymentData from '../PaymentData';
 import ShippingData from '../ShippingData';
 import Totalizers from '../Totalizers';
 import Preloader from '../Preloader';
+import Header from '../Header';
+import Footer from '../Footer';
 import { loading$ } from '../../redux/UI/selectors';
 
 import styles from './Layout.module.scss';
@@ -20,6 +22,7 @@ function Layout() {
         <div className={styles.layout}>
             <main>
                 {loading && <Preloader backgroundColor='rgba(255, 255, 255, 0.3)' />}
+                <Header />
                 <Cart />
                 <CartMoreOptions />
                 <CartLinks />
@@ -28,6 +31,7 @@ function Layout() {
                 <ShippingData />
                 <PaymentData />
                 <CartTemplate />
+                <Footer />
             </main>
         </div>
     )

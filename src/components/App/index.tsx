@@ -14,23 +14,20 @@ import Layout from '../Layout';
  * loading according to the path with the following function: getHash() from helper file.
  */
 
-function App() {
-
-    return (
-        <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                <SnackbarProvider
-                    preventDuplicate
-                    hideIconVariant
-                    maxSnack={3}
-                    content={(key: SnackbarKey, props: SnackbarOptions) => (
-                        <StyledSnackbar id={key} message={props.message} type={props.type} />
-                    )}>
-                    <Layout />
-                </SnackbarProvider>
-            </ThemeProvider>
-        </Provider>
-    )
-}
+const App = () => (
+    <Provider store={store}>
+        <ThemeProvider theme={theme}>
+            <SnackbarProvider
+                preventDuplicate
+                hideIconVariant
+                maxSnack={3}
+                content={(key: SnackbarKey, props: SnackbarOptions) => (
+                    <StyledSnackbar id={key} message={props.message} type={props.type} />
+                )}>
+                <Layout />
+            </SnackbarProvider>
+        </ThemeProvider>
+    </Provider>
+);
 
 export default App;
