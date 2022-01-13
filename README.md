@@ -57,15 +57,6 @@ from the browser console you can type $ or Jquery and for underscore _ and you w
 
 In the project directory, you can run:
 
-### `Start`
-
-Builds the app for production to the `dist` folder.\
-additionally while you are modifying, It generating new files for the `dist` folder.
-
-```bash
-npm run start
-```
-
 ### `Build`
 
 Builds the app for production to the `dist` folder.\
@@ -73,6 +64,22 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 ```bash
 npm run build
+```
+
+### `Start`
+
+It works in the same way as build but additionally while you are modifying, It generating new files for the `dist` folder.
+
+```bash
+npm run start
+```
+
+### `Serve`
+
+It works in a similar way to Build and Start but additionally initializes a local server on port 9000, it can be accessed as follows <http://localhost:9000/>
+
+```bash
+npm run serve
 ```
 
 ## Project structure
