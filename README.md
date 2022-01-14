@@ -86,7 +86,7 @@ npm run serve
 
 ```bash
 src/
-├── axiosInstance.tsx
+├── axiosInstance.ts
 ├── components
 │   ├── App
 │   │   └── index.tsx
@@ -105,11 +105,23 @@ src/
 │   ├── ClientProfileData
 │   │   ├── index.tsx
 │   │   └── styles.scss
+│   ├── Footer
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── Header
+│   │   ├── index.tsx
+│   │   └── styles.scss
 │   ├── HtmlTooltip
+│   │   └── index.tsx
+│   ├── Layout
+│   │   ├── Layout.module.scss
 │   │   └── index.tsx
 │   ├── PaymentData
 │   │   ├── index.tsx
 │   │   └── styles.scss
+│   ├── Preloader
+│   │   ├── Preloader.module.scss
+│   │   └── index.tsx
 │   ├── ShippingData
 │   │   ├── index.tsx
 │   │   └── styles.scss
@@ -125,13 +137,23 @@ src/
 │   └── Totalizers
 │       ├── index.tsx
 │       └── styles.scss
-├── helpers.tsx
+├── helpers.ts
+├── index.html
 ├── index.tsx
+├── redux
+│   ├── UI
+│   │   ├── action.ts
+│   │   ├── actionTypes.ts
+│   │   ├── reducer.ts
+│   │   └── selectors.ts
+│   ├── reducer.ts
+│   └── store.ts
 ├── styles
+│   ├── _classes.scss
 │   ├── _mixins.scss
 │   ├── _variables.scss
 │   └── index.scss
-└── typings.d.ts
+└── theme.ts
 ```
 
 ### The files that you must add to the checkout from the VTEX administrator are
