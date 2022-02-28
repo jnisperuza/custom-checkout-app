@@ -1,12 +1,14 @@
 import { Action } from "../reducer";
-import { LOADING } from "./actionTypes";
+import { LOADING, SET_HASH } from "./actionTypes";
 
 export interface UIState {
     loading: boolean;
+    hash: string;
 }
 
 const initialState: UIState = {
     loading: false,
+    hash: null,
 }
 
 export default function reducer(state = initialState, action: Action) {
@@ -16,6 +18,13 @@ export default function reducer(state = initialState, action: Action) {
             return {
                 ...state,
                 loading
+            }
+        }
+        case SET_HASH: {
+            const { hash } = action.payload;
+            return {
+                ...state,
+                hash
             }
         }
         default:
