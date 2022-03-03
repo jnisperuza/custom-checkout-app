@@ -7,7 +7,7 @@ module.exports = {
   entry: { ['checkout6-custom']: path.resolve(__dirname, './src/index.tsx') },
   devtool: 'source-map',
   performance: {
-    hints: false
+    hints: false,
   },
   watchOptions: {
     ignored: ['**/files/**/*.js', '**/node_modules'],
@@ -33,7 +33,19 @@ module.exports = {
       },
       {
         test: /\.(s(a|c)ss)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: '[local]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg|jpg|png)$/,
