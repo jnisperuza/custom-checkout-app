@@ -6,6 +6,12 @@ Through a proxy software you can map the local files with which you can see the 
 
 From the scope of the VTEX checkout you have access to the following objects:
 
+**Important**: To use the vtexjs global variable from TypeScript files, it is recommended to declare this variable inside the component, to avoid linter errors.
+
+```bash
+declare let vtexjs: any;
+```
+
 ```bash
 vtexjs.checkout.getOrderForm().then((orderForm) => {});
 ```
@@ -36,9 +42,20 @@ vtexjs.checkout.removeAllItems(orderForm.items).then((orderForm) => {});
 vtexjs.checkout.sendAttachment('KEY_NAME', {});
 ```
 
+## Checkout confirmation page
+
+This page consumes the data of the request through a queryParam called og to display it in the default template, to directly access the data you can do it by reading the global variable:
+
+```bash
+dataLayer
+```
+
+However, you can also consult the data of the order from the following official vtex endpoint
+[Get Order](https://developers.vtex.com/vtex-developer-docs/reference/getorder#response-body-example)
+
 ## Libraries with global Scope
 
-from the browser console you can type $ or Jquery and for underscore _ and you will be able to see the instances of the respective libraries.
+From the browser console you can type $ or Jquery and for underscore _ and you will be able to see the instances of the respective libraries.
 
 - JQuery
 - Underscore
@@ -52,6 +69,7 @@ from the browser console you can type $ or Jquery and for underscore _ and you w
 | `/#/profile`      | Request user information in case of being a user who is not yet registered. |
 | `/#/shipping`      | Request location information to determine logistics. |
 | `/#/payment`      | Allows you to select payment and billing methods. |
+| `/orderPlaced/?og=###`      | This route shows the information corresponding to the purchase with their respective codes for order tracking. **Important**: The vtexjs variable is not available in this path. |
 
 ## Available Scripts ⚡
 
@@ -86,6 +104,7 @@ npm run serve
 
 ```bash
 src/
+.
 ├── axiosInstance.ts
 ├── components
 │   ├── App
@@ -103,6 +122,9 @@ src/
 │   │   ├── index.tsx
 │   │   └── styles.scss
 │   ├── ClientProfileData
+│   │   ├── index.tsx
+│   │   └── styles.scss
+│   ├── ConfirmationPage
 │   │   ├── index.tsx
 │   │   └── styles.scss
 │   ├── Footer
@@ -156,14 +178,21 @@ src/
 └── theme.ts
 ```
 
-### The files that you must add to the checkout from the VTEX administrator are
+## The files that you must add to the checkout from the VTEX administrator are
+
+The same js and css files should be assigned to the content of the confirmation page files:
+
+- checkout-confirmation-footer
+- checkout-confirmation-header
 
 ```bash
 dist/
 ├── checkout6-custom.css
 ├── checkout6-custom.css.map
 ├── checkout6-custom.js
-└── checkout6-custom.js.map
+├── checkout6-custom.js.LICENSE.txt
+├── checkout6-custom.js.map
+└── index.html
 ```
 
 ## Learn More 🛠️
@@ -174,6 +203,12 @@ dist/
 - [Babel](https://github.com/babel/babel-loader)
 - [Axios](https://github.com/axios/axios)
 - [Material UI](https://mui.com)
+- [Checkout Vtex](https://github.com/vtex/vtex.js/blob/master/docs/checkout/README.en.md)
+- [OrderForm Custom Data](https://developers.vtex.com/vtex-developer-docs/reference/orderform-fields#customdata)
+- [Update orderForm configuration](https://developers.vtex.com/vtex-developer-docs/reference/updateorderformconfiguration)
+- [Add client profile](https://developers.vtex.com/vtex-rest-api/reference/addclientprofile)
+- [CMS - Creating and editing a page template](https://help.vtex.com/tutorial/how-to-create-a-page-template--frequentlyAskedQuestions_1850)
+- [Customizing the Checkout Confirmation pages](https://help.vtex.com/tutorial/customizing-the-checkout-confirmation-pages--7CbAZNHGI8uUO8aSgWmcsS)
 
 ## Author ✒️
 

@@ -12,6 +12,7 @@ import Preloader from '../Preloader';
 import Header from '../Header';
 import Footer from '../Footer';
 import { loading$ } from '../../redux/UI/selectors';
+import ConfirmationPage from '../ConfirmationPage';
 
 import styles from './Layout.module.scss';
 
@@ -31,6 +32,7 @@ const Layout = () => {
                 <ShippingData />
                 <PaymentData />
                 <CartTemplate />
+                <ConfirmationPage />
                 <Footer />
             </main>
         </div>
