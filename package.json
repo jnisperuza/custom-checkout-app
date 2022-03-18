@@ -5,14 +5,23 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "start": "webpack --watch --progress",
-    "serve": "webpack --progress && webpack serve"
+    "build:prod": "webpack --env prod",
+    "build:qa": "webpack --env qa",
+    "build:dev": "webpack --env dev",
+    "build": "webpack --env dev",
+    "start:prod": "webpack --env prod --watch --progress",
+    "start:qa": "webpack --env qa --watch --progress",
+    "start:dev": "webpack --env dev --watch --progress",
+    "start": "webpack --env dev --watch --progress",
+    "serve:prod": "webpack --env prod --progress && webpack serve",
+    "serve:qa": "webpack --env qa --progress && webpack serve",
+    "serve:dev": "webpack --env dev --progress && webpack serve",
+    "serve": "webpack --env dev --progress && webpack serve"
   },
   "author": "Jeison Nisperuza <jnisperuza1102@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jnisperuza/custom-checkout-app.git"
+    "url": "ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/front-checkout-movilidad-marketplace-bancolombia"
   },
   "license": "ISC",
   "devDependencies": {
@@ -23,6 +32,7 @@
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
+    "dotenv-webpack": "^7.1.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.6",
     "sass": "^1.46.0",
@@ -46,6 +56,7 @@
     "@types/underscore": "^1.11.4",
     "axios": "^0.24.0",
     "core-js": "^3.21.1",
+    "dotenv": "^8.6.0",
     "notistack": "^2.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

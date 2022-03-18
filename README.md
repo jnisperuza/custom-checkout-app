@@ -100,6 +100,15 @@ It works in a similar way to Build and Start but additionally initializes a loca
 npm run serve
 ```
 
+## Environments
+
+Inside the "environments" folder you can find the configuration files .dev.env, .qa.env, .prod.env, there you can add your environment variables.\
+With the previous commands and the command :dev, :qa, :product for instance:
+
+```bash
+npm run start:dev
+```
+
 ## Project structure
 
 ```bash
