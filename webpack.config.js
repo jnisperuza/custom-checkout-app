@@ -4,18 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = (env) => {
-  let config;
-
-  if (env.prod) {
-    config = { env: 'prod', mode: 'production' };
-  } else if (env.qa) {
-    config = { env: 'qa', mode: 'development' };
-  } else if (env.dev) {
-    config = { env: 'dev', mode: 'development' };
-  }
+  const envFileName = env.prod ? 'prod' : env.qa ? 'qa' : env.dev ? 'dev' : 'dev';
 
   return {
-    mode: config?.mode || 'development',
+    mode: 'production',
     entry: { ['checkout6-custom']: path.resolve(__dirname, './src/index.tsx') },
     devtool: 'source-map',
     performance: {
@@ -80,7 +72,7 @@ module.exports = (env) => {
         filename: 'index.html',
       }),
       new Dotenv({
-        path: `environments/.${config?.env || 'dev'}.env`,
+        path: `environments/.${envFileName}.env`,
       }),
     ],
     output: {

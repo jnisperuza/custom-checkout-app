@@ -109,6 +109,8 @@ With the previous commands and the command :dev, :qa, :product for instance:
 npm run start:dev
 ```
 
+***If you don't set environment, dev is taken by default value***
+
 ## Project structure
 
 ```bash
