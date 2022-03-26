@@ -170,6 +170,8 @@ src/
 │   └── Totalizers
 │       ├── index.tsx
 │       └── styles.scss
+├── constants.ts
+├── dane.json
 ├── helpers.ts
 ├── index.html
 ├── index.tsx
@@ -186,7 +188,9 @@ src/
 │   ├── _mixins.scss
 │   ├── _variables.scss
 │   └── index.scss
-└── theme.ts
+├── theme.ts
+└── types
+    └── orderForm.d.ts
 ```
 
 ## The files that you must add to the checkout from the VTEX administrator are
