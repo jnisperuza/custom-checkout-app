@@ -1,4 +1,6 @@
-import { INTL } from "./constants";
+import { DANE_CODES_MAPPED, INTL } from "./constants";
+import { CustomApp } from "./types/orderForm";
+import DANE_CODES from "./dane.json";
 
 declare let vtexjs: any;
 
@@ -53,6 +55,21 @@ export const getQueryParam = (name: string) => {
     return params?.[name];
 }
 
+export const getCustomFieldValue = async (appId: string, fieldName: string) => {
+    if (!appId || !fieldName || !window['vtexjs']) return new Promise(null);
+
+    const orderForm = await vtexjs.checkout.getOrderForm();
+    const appFound = orderForm.customData?.customApps.find((app: CustomApp) => app.id === appId);
+
+    return new Promise((resolve) => {
+        if (appFound) {
+            resolve(appFound.fields[fieldName]);
+        } else {
+            resolve(null);
+        }
+    });
+}
+
 export const isMobile = () => {
     return navigator.userAgent.match(/iPhone/i)
         || navigator.userAgent.match(/webOS/i)
@@ -61,4 +78,35 @@ export const isMobile = () => {
         || navigator.userAgent.match(/iPod/i)
         || navigator.userAgent.match(/BlackBerry/i)
         || navigator.userAgent.match(/Windows Phone/i);
+}
+
+/**
+ * 
+ * @param text {string}
+ * @returns {string} returns a text string without accents and without punctuation marks.
+ */
+export const cleanString = (text: string): string => {
+    if (!text) return;
+    return text.normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-zA-Z0-9 ]/g, '');
+}
+
+export const getDaneCode = (stateName: string, cityName: string) => {
+    let found = DANE_CODES?.[stateName]?.[cityName];
+
+    if (!found) {
+        const stateFound = DANE_CODES_MAPPED.find(
+            item => cleanString(item.state).toLowerCase() === cleanString(stateName).toLowerCase()
+        );
+
+        if (stateFound) {
+            const cityFound = stateFound.cities.find(
+                item => cleanString(item.city).toLowerCase() === cleanString(cityName).toLowerCase()
+            );
+            found = cityFound?.code;
+        }
+    }
+
+    return found;
 }
