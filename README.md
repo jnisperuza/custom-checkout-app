@@ -92,12 +92,12 @@ It works in the same way as build but additionally while you are modifying, It g
 npm run start
 ```
 
-### `Serve`
+### `Launch Deploy App`
 
-It works in a similar way to Build and Start but additionally initializes a local server on port 9000, it can be accessed as follows <http://localhost:9000/>
+Initializes a local server on port 9000, it can be accessed as follows <http://localhost:9000/>. From here you can deploy your code. You just need to copy the vtex admin cookie header and paste it into the "Cookie" field.
 
 ```bash
-npm run serve
+npm run deployapp
 ```
 
 ## Environments
@@ -171,9 +171,10 @@ src/
 │       ├── index.tsx
 │       └── styles.scss
 ├── constants.ts
+├── country
+│   └── COL.ts
 ├── dane.json
 ├── helpers.ts
-├── index.html
 ├── index.tsx
 ├── redux
 │   ├── UI

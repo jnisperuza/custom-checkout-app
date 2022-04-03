@@ -1,16 +1,17 @@
-import DANE_CODES from "./dane.json";
+import COUNTRY_DATA from "./country/COL";
+import { CountryItem } from "./types/orderForm";
 
 export const INTL = {
     code: 'es-CO',
     currency: 'COP'
 };
 
-export const DANE_CODES_MAPPED = Object.keys(DANE_CODES).map((state: string) => {
+export const COUNTRY_DATA_MAPPED = Object.keys(COUNTRY_DATA).map((state: string) => {
     return {
         state,
-        cities: Object.keys(DANE_CODES[state]).map(city => ({
+        cities: Object.keys(COUNTRY_DATA[state]).map(city => ({
             city,
-            code: DANE_CODES[state][city]
+            code: COUNTRY_DATA[state][city]
         }))
-    }
+    } as CountryItem
 });

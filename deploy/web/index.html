@@ -1,0 +1,69 @@
+<!-- IMPORTANT! -->
+<!-- This HTML file is for Header and Footer layout purposes only,  -->
+<!-- the vtex checkout functionalities can only be tested by using a local proxy and replacing the compiled checkout6-custom files. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy Checkout App</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Deploy Checkout App</h1>
+    </header>
+
+    <main>
+      <div id="preloader">
+        <div></div>
+      </div>
+      <section>
+        <fieldset>
+          <legend>Input</legend>
+
+          <div class="row">
+            <label for="environment" class="required">Environment</label>
+            <select id="environment">
+              <option
+                value="https://{{accountName}}.myvtex.com/api/portal/pvt/sites/default/files"
+              >
+                QA Sample
+              </option>
+              <option
+                value="https://{{accountName}}.myvtex.com/api/portal/pvt/sites/default/files"
+              >
+                Production Sample
+              </option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="cookie" class="required">Cookie</label>
+            <textarea id="cookie"></textarea>
+          </div>
+        </fieldset>
+      </section>
+
+      <section>
+        <fieldset>
+          <legend>Output</legend>
+          <div class="output-panel">
+            <div class="wrapper">
+                <label for="success-list">Successfull <span id="success-number"></span></label>
+                <ul id="success-list"></ul>
+            </div>
+            <div class="wrapper">
+                <label for="error-list">Error <span id="error-number"></span></label>
+                <ul id="error-list"></ul>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+      <button type="button" onclick="start()">Submit</button>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>

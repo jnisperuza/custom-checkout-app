@@ -2,7 +2,7 @@
  * VTEX Checkout Interfaces
  */
 
-export interface ClientPreferencesData {
+ export interface ClientPreferencesData {
     locale: string;
     optinNewsLetter: boolean;
 }
@@ -383,7 +383,7 @@ export interface OrderForm {
     clientPreferencesData: ClientPreferencesData;
     clientProfileData: ClientProfileData;
     commercialConditionData: any; // 🚧 Without information from official documentation
-    customData: CustomData; // Fields by apps, users definition
+    customData: any; // Fields by apps, users definition
     giftRegistryData: any; // 🚧 Work in progress This guide is currently being written and published as content becomes available.
     hooksData: any; // 🚧 Work in progress This guide is currently being written and published as content becomes available.
     items: Item[];
@@ -446,4 +446,16 @@ export interface OrderGroup extends OrderForm {
     allowCancellation: boolean;
     isUserDataVisible: boolean;
     allowChangeSeller: boolean;
+}
+
+export type SUMMARY_MODE = 'totalizer' | 'summary' | 'payment_summary';
+
+export interface CountryItemCity {
+    city: string;
+    code: string;
+}
+
+export interface CountryItem {
+    state: string;
+    cities: CountryItemCity[];
 }

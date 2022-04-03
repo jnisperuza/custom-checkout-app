@@ -1,5 +1,5 @@
-import { DANE_CODES_MAPPED, INTL } from "./constants";
-import { CustomApp } from "./types/orderForm";
+import { COUNTRY_DATA_MAPPED, INTL } from "./constants";
+import { CountryItemCity, CustomApp } from "./types/orderForm";
 import DANE_CODES from "./dane.json";
 
 declare let vtexjs: any;
@@ -92,21 +92,31 @@ export const cleanString = (text: string): string => {
         .replace(/[^a-zA-Z0-9 ]/g, '');
 }
 
-export const getDaneCode = (stateName: string, cityName: string) => {
-    let found = DANE_CODES?.[stateName]?.[cityName];
+export const getState = (stateName: string) => {
+    if (!stateName) return;
 
-    if (!found) {
-        const stateFound = DANE_CODES_MAPPED.find(
-            item => cleanString(item.state).toLowerCase() === cleanString(stateName).toLowerCase()
-        );
+    const chunks = stateName.split(' ');
+    return COUNTRY_DATA_MAPPED.find(
+        item => chunks.find(chunk => cleanString(item.state).toLowerCase().includes(cleanString(chunk).toLowerCase()))
+    );
+}
 
-        if (stateFound) {
-            const cityFound = stateFound.cities.find(
-                item => cleanString(item.city).toLowerCase() === cleanString(cityName).toLowerCase()
-            );
-            found = cityFound?.code;
-        }
+export const getCity = (cities: CountryItemCity[], cityName: string) => {
+    const chunks = cityName.split(' ');
+    return cities.find(
+        item => chunks.find(chunk => cleanString(item.city).toLowerCase().includes(cleanString(chunk).toLowerCase()))
+    )
+}
+
+export const getLocation = (stateName: string, cityName: string) => {
+    const state = getState(stateName);
+
+    if (state) {
+        const city = getCity(state.cities, cityName);
+        return { state, city }
     }
+}
 
-    return found;
+export const getPostalCode = (stateName: string, cityName: string) => {
+    return getLocation(stateName, cityName)?.city?.code;
 }
