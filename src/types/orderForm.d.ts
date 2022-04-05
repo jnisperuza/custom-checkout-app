@@ -2,12 +2,12 @@
  * VTEX Checkout Interfaces
  */
 
- export interface ClientPreferencesData {
+interface ClientPreferencesData {
     locale: string;
     optinNewsLetter: boolean;
 }
 
-export interface ClientProfileData {
+interface ClientProfileData {
     email: string;
     firstName: string;
     lastName: string;
@@ -25,17 +25,17 @@ export interface ClientProfileData {
     isCorporate: boolean;
 }
 
-export interface CustomApp {
+interface CustomApp {
     id: string;
     fields: any;
     major: number;
 }
 
-export interface CustomData {
+interface CustomData {
     customApps: CustomApp[];
 }
 
-export interface Dimension {
+interface Dimension {
     cubicweight: number;
     height: number;
     length: number;
@@ -43,7 +43,7 @@ export interface Dimension {
     width: number;
 }
 
-export interface AdditionalInfo {
+interface AdditionalInfo {
     dimension: Dimension;
     brandName: string;
     brandId: string;
@@ -52,22 +52,22 @@ export interface AdditionalInfo {
     offeringTypeId: string | null;
 }
 
-export interface ProductCategories {
+interface ProductCategories {
     [key: string]: any;
 }
 
-export interface SellingPrice {
+interface SellingPrice {
     quantity: number;
     value: number;
 }
 
-export interface PriceDefinition {
+interface PriceDefinition {
     calculatedSellingPrice: number;
     total: number;
     sellingPrice: SellingPrice[];
 }
 
-export interface PriceTags {
+interface PriceTags {
     name: string;
     value: number;
     rawValue;
@@ -75,7 +75,7 @@ export interface PriceTags {
     identifier: string | null;
 }
 
-export interface Item {
+interface Item {
     uniqueId: string;
     id: string;
     productId: string;
@@ -119,7 +119,7 @@ export interface Item {
     priceDefinition: PriceDefinition;
 }
 
-export interface MarketingData {
+interface MarketingData {
     attachmentId: string;
     coupon: string | null;
     marketingTags: string[];
@@ -131,22 +131,22 @@ export interface MarketingData {
     utmipage: string | null;
 }
 
-export interface Messages {
+interface Messages {
     code: string | number | null;
     status: string;
     text: string;
 }
 
-export interface OpenTextField {
+interface OpenTextField {
     value: string;
 }
 
-export interface ItemsOrdination {
+interface ItemsOrdination {
     criteria: string;
     ascending: boolean;
 }
 
-export interface GiftCards {
+interface GiftCards {
     redemptionCode: string;
     value: number;
     balance: number;
@@ -156,20 +156,20 @@ export interface GiftCards {
     isSpecialCard: boolean;
 }
 
-export interface Installments {
+interface Installments {
     count: number;
     hasInterestRate: number;
     value: number;
     total: number;
 }
 
-export interface InstallmentOptions {
+interface InstallmentOptions {
     paymentSystem: string;
     value: number;
     installments: Installments[];
 }
 
-export interface AvailableAccounts {
+interface AvailableAccounts {
     accountId: string;
     paymentSystem: string;
     paymentSystemName: string;
@@ -177,7 +177,7 @@ export interface AvailableAccounts {
     availableAddresses: string[];
 }
 
-export interface PaymentSistemValidator {
+interface PaymentSistemValidator {
     regex: string;
     mask: string;
     cardCodeRegex: string;
@@ -185,7 +185,7 @@ export interface PaymentSistemValidator {
     weights: number[];
 }
 
-export interface PaymentSystem {
+interface PaymentSystem {
     id: number;
     name: string;
     groupName: string;
@@ -201,8 +201,8 @@ export interface PaymentSystem {
     availablePayments?: any;
 }
 
-export interface Payment {
-    accountId: string | null;
+interface Payment {
+    accountId?: string | null;
     bin: string | null;
     installments: number;
     paymentSystem: string; // number in string
@@ -228,7 +228,6 @@ export interface Payment {
     giftCardAsDiscount?: string;
     group?: string;
     dueDate?: string;
-    accountId?: string;
     parentAccountId?: string;
     bankIssuedInvoiceIdentificationNumber?: string;
     bankIssuedInvoiceIdentificationNumberFormatted?: string;
@@ -237,7 +236,7 @@ export interface Payment {
     billingAddress?: string;
 }
 
-export interface Transaction {
+interface Transaction {
     isActive: boolean;
     transactionId: string;
     merchantName: string;
@@ -245,7 +244,7 @@ export interface Transaction {
     sharedTransaction: boolean;
 }
 
-export interface PaymentData {
+interface PaymentData {
     giftCards: GiftCards;
     giftCardMessages: Messages[];
     availableAccounts: AvailableAccounts[];
@@ -256,18 +255,18 @@ export interface PaymentData {
     transactions?: Transaction[];
 }
 
-export interface RatesAndBenefitsData {
+interface RatesAndBenefitsData {
     rateAndBenefitsIdentifiers: any[]; // 🚧 Work in progress This guide is currently being written and published as content becomes available.
     teaser: any[]; // 🚧 Work in progress This guide is currently being written and published as content becomes available.
 }
 
-export interface Seller {
+interface Seller {
     id: string; // number in string
     name: string;
     logo: string; // Url image
 }
 
-export interface Address {
+interface Address {
     addressType: 'residential' | 'pickup';
     receiverName: string;
     addressId?: string | number;
@@ -285,27 +284,22 @@ export interface Address {
     addressQuery?: string;
 }
 
-export interface DeliveryWindow {
+interface DeliveryWindow {
     startDateUtc?: string;
     endDateUtc?: string;
     listPrice?: number;
+    price: number;
     taxt?: number;
 }
 
-export interface DeliveryWindow {
-    startDateUtc: string;
-    endDateUtc: string;
-    price: number;
-}
-
-export interface PickupStoreInfo {
+interface PickupStoreInfo {
     isPickupStore: boolean;
     friendlyName: string;
     address: Address;
     additionalInfo?: string;
 }
 
-export interface Slas {
+interface Slas {
     id: string;
     deliveryChannel: 'delivery' | 'pickup-in-point';
     name: string;
@@ -319,12 +313,12 @@ export interface Slas {
     deliveryWindow?: DeliveryWindow;
 }
 
-export interface DeliveryChannels {
+interface DeliveryChannels {
     id: 'delivery' | 'pickup-in-point';
     stockBalance: number;
 }
 
-export interface LogisticsInfo {
+interface LogisticsInfo {
     itemIndex: number;
     selectedSla: string;
     lockTTL?: string;
@@ -336,7 +330,7 @@ export interface LogisticsInfo {
     deliveryChannels: DeliveryChannels;
 }
 
-export interface ShippingData {
+interface ShippingData {
     attachmentId: string;
     address: Address;
     availableAddresses: Address[];
@@ -347,11 +341,11 @@ export interface ShippingData {
     expectedOrderFormSections?: string[]; // For attachment endpoint
 }
 
-export interface TemplateOptions {
+interface TemplateOptions {
     toggleCorporate: boolean;
 }
 
-export interface CurrencyFormatInfo {
+interface CurrencyFormatInfo {
     currencyDecimalDigits: number;
     currencyDecimalSeparator: string;
     currencyGroupSeparator: string;
@@ -359,7 +353,7 @@ export interface CurrencyFormatInfo {
     startsWithCurrencySymbol: boolean;
 }
 
-export interface StorePreferencesData {
+interface StorePreferencesData {
     countryCode: string;
     checkToSavePersonDataByDefault: boolean;
     templateOptions: TemplateOptions;
@@ -370,13 +364,13 @@ export interface StorePreferencesData {
     currencyFormatInfo: CurrencyFormatInfo;
 }
 
-export interface Total {
+interface Total {
     id: string;
     name: string;
     value: number;
 }
 
-export interface OrderForm {
+interface OrderForm {
     allowManualPrice: boolean;
     canEditData: boolean;
     checkedInPickupPointId: boolean | null;
@@ -405,7 +399,7 @@ export interface OrderForm {
     value: number;
 }
 
-export interface ItemMetaData {
+interface ItemMetaData {
     id: string;
     seller: string;
     name: string;
@@ -418,7 +412,7 @@ export interface ItemMetaData {
     assemblyOptions: any[];
 }
 
-export interface OrderGroup extends OrderForm {
+interface OrderGroup extends OrderForm {
     orderId: string;
     orderGroup: string;
     state: string;
@@ -448,14 +442,14 @@ export interface OrderGroup extends OrderForm {
     allowChangeSeller: boolean;
 }
 
-export type SUMMARY_MODE = 'totalizer' | 'summary' | 'payment_summary';
+type SUMMARY_MODE = 'totalizer' | 'summary' | 'payment_summary';
 
-export interface CountryItemCity {
+interface CountryItemCity {
     city: string;
     code: string;
 }
 
-export interface CountryItem {
+interface CountryItem {
     state: string;
     cities: CountryItemCity[];
 }

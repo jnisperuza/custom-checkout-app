@@ -55,6 +55,7 @@ const start = () => {
       .catch((error) => {
         preloader.classList.remove('display');
         console.error('Error:', error);
+        alert(error);
       })
       .then((response) => {
         process(response?.data);

@@ -1,5 +1,4 @@
 import COUNTRY_DATA from "./country/COL";
-import { CountryItem } from "./types/orderForm";
 
 export const INTL = {
     code: 'es-CO',

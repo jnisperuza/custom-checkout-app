@@ -1,6 +1,4 @@
 import { COUNTRY_DATA_MAPPED, INTL } from "./constants";
-import { CountryItemCity, CustomApp } from "./types/orderForm";
-import DANE_CODES from "./dane.json";
 
 declare let vtexjs: any;
 
@@ -92,20 +90,38 @@ export const cleanString = (text: string): string => {
         .replace(/[^a-zA-Z0-9 ]/g, '');
 }
 
+export const getLongestPartOfText = (text: string): string => {
+    const chunks = text.split(' ');
+    return chunks.reduce(function (prev, current) {
+        return (prev.length > current.length) ? prev : current
+    });
+}
+
 export const getState = (stateName: string) => {
     if (!stateName) return;
 
-    const chunks = stateName.split(' ');
+    const keyword = getLongestPartOfText(stateName);
     return COUNTRY_DATA_MAPPED.find(
-        item => chunks.find(chunk => cleanString(item.state).toLowerCase().includes(cleanString(chunk).toLowerCase()))
+        item => cleanString(item.state).toLowerCase().includes(cleanString(keyword).toLowerCase())
     );
 }
 
 export const getCity = (cities: CountryItemCity[], cityName: string) => {
-    const chunks = cityName.split(' ');
+    if (!cities || !cityName) return;
+
+    const keyword = getLongestPartOfText(cityName);
     return cities.find(
-        item => chunks.find(chunk => cleanString(item.city).toLowerCase().includes(cleanString(chunk).toLowerCase()))
+        item => cleanString(item.city).toLowerCase().includes(cleanString(keyword).toLowerCase())
     )
+}
+
+export const getLocationByCity = (cityName: string) => {
+    if (!cityName) return;
+
+    const keyword = getLongestPartOfText(cityName);
+    return COUNTRY_DATA_MAPPED.find(
+        item => item.cities.find(_item => cleanString(_item.city).toLowerCase().includes(cleanString(keyword).toLowerCase()))
+    );
 }
 
 export const getLocation = (stateName: string, cityName: string) => {
