@@ -1,4 +1,125 @@
-.client-profile-data {
-  /** Add your styles */
+@import '../../styles/variables';
+@import '../../styles/classes';
+
+#client-profile-data {
+  /** Here you can implement the overwrite styles */
+
   display: block;
+  height: auto;
+  margin-bottom: 10px;
+  max-width: 454px;
+
+  @media #{$smartphones}, #{$smartphones_h} {
+    width: calc(100% - 30px) !important;
+    margin-left: auto !important;
+    margin: 0 auto 24px;
+  }
+
+  .box-client-info-pj,
+  .newsletter,
+  .phone-box,
+  .other-phone {
+    display: none;
+  }
+
+  // accordion-group
+  .step {
+    @media #{$smartphones}, #{$smartphones_h} {
+      margin-bottom: 0;
+    }
+
+    .accordion-heading {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid $lightGrayColor;
+
+      @media #{$smartphones}, #{$smartphones_h} {
+        padding: 15px;
+      }
+
+      .accordion-toggle {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        .icon-user {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+
+          &:before {
+            display: none;
+          }
+        }
+
+        .link-box-edit {
+          outline: none;
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+          height: 24px;
+          top: 0;
+          bottom: 0;
+          right: -5px;
+          margin: auto;
+
+          @media #{$smartphones}, #{$smartphones_h} {
+            right: -15px;
+          }
+
+          .icon-edit {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+
+            &:before {
+              display: none;
+            }
+          }
+        }
+
+        span[data-i18n='clientProfileData.identification'] {
+          margin: 0;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 30px;
+          letter-spacing: -0.6px;
+          color: $textColor;
+        }
+
+        #cancel-edition-profile {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 30px;
+          height: 30px;
+          background: none;
+          border: none;
+          padding: 3px;
+
+          img {
+            opacity: 0.8;
+          }
+
+          &:hover {
+            img {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btn-submit-wrapper {
+    text-align: center;
+
+    button#go-to-shipping {
+      @extend .PrimaryButton;
+
+      &::after {
+        content: 'Continuar';
+      }
+    }
+  }
 }

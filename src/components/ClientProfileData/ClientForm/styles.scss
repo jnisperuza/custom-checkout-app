@@ -1,0 +1,95 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/classes';
+
+.clientForm {
+  /** Here you can implement the overwrite styles */
+
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+
+  @media #{$smartphones}, #{$smartphones_h} {
+    padding: 15px;
+  }
+
+  .ButtonShippingPrimaryClass {
+    @extend .PrimaryButton;
+    margin-top: 10px;
+
+    &:disabled {
+      background-color: $lightGrayColor;
+      color: rgba($textColor, 0.4);
+      pointer-events: none;
+    }
+  }
+
+  &--not-editable {
+    [class^='MuiFormControl-root'] {
+      [class^='MuiInput-root'] {
+        &::before {
+          border-bottom: none !important;
+        }
+
+        svg {
+          display: none !important;
+        }
+      }
+
+      [class^='MuiSelect-select'],
+      [class^='MuiInput-input'] {
+        font-size: 16px !important;
+        line-height: 21px !important;
+        font-weight: 600 !important;
+        color: $textColor !important;
+        -webkit-text-fill-color: $textColor !important;
+      }
+    }
+  }
+
+  [class^="MuiFormControl-root"] {
+    width: 100%;
+
+    [class^="MuiInputLabel-root"] {
+      &[class*="Mui-focused"] {
+        color: $textColor;
+      }
+    }
+
+    [class^="MuiInput-root"] {
+      &[class*="Mui-focused"] {
+        &::after {
+          border-bottom: 2px solid $primaryColor;
+        }
+      }
+    }
+
+    [class^="MuiSelect-select"] {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+    color: $textColor;
+  }
+
+  &__save {
+    @extend .ButtonShippingPrimaryClass;
+
+    &::after {
+      content: "Guardar" !important;
+    }
+  }
+
+  &__continue {
+    @extend .ButtonShippingPrimaryClass;
+
+    &::after {
+      content: "Continuar" !important;
+    }
+  }
+}

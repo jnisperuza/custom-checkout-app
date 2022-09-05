@@ -1,7 +1,7 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
-.content {
+.styledDialogTitle {
   position: relative;
   display: flex;
   align-items: center;
@@ -9,12 +9,13 @@
   min-height: 3rem;
   margin: 0;
   padding: 0.5rem 1rem !important;
+  box-sizing: border-box;
 
-  .closeBtn {
-    position: absolute;
+  &__closeBtn {
+    position: absolute !important;
     right: 8px;
     top: 5px;
-    color: $labelColor;
+    color: $labelColor !important;
     align-self: flex-end;
     z-index: 10;
   }

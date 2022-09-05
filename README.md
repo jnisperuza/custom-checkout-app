@@ -116,6 +116,9 @@ npm run start:dev
 ```bash
 src/
 .
+├── HOC
+│   └── ProviderContext
+│       └── index.tsx
 ├── axiosInstance.ts
 ├── components
 │   ├── App
@@ -133,6 +136,9 @@ src/
 │   │   ├── index.tsx
 │   │   └── styles.scss
 │   ├── ClientProfileData
+│   │   ├── ClientForm
+│   │   │   ├── index.tsx
+│   │   │   └── styles.scss
 │   │   ├── index.tsx
 │   │   └── styles.scss
 │   ├── ConfirmationPage
@@ -155,17 +161,22 @@ src/
 │   ├── Preloader
 │   │   ├── Preloader.module.scss
 │   │   └── index.tsx
+│   ├── SampleDialog
+│   │   ├── SampleDialog.module.scss
+│   │   └── index.tsx
+│   ├── SampleLogo
+│   │   ├── SampleLogo.module.scss
+│   │   └── index.tsx
+│   ├── SampleToast
+│   │   ├── SampleToast.module.scss
+│   │   └── index.tsx
 │   ├── ShippingData
 │   │   ├── index.tsx
 │   │   └── styles.scss
 │   ├── StyledDialog
-│   │   ├── StyledDialog.module.scss
-│   │   ├── Title
-│   │   │   ├── Title.module.scss
-│   │   │   └── index.tsx
-│   │   └── index.tsx
-│   ├── StyledSnackbars
-│   │   ├── StyledSnackbar.module.scss
+│   │   ├── StyledDialogTitle
+│   │   │   ├── index.tsx
+│   │   │   └── styles.scss
 │   │   └── index.tsx
 │   └── Totalizers
 │       ├── index.tsx
@@ -174,7 +185,8 @@ src/
 ├── country
 │   └── COL.ts
 ├── dane.json
-├── helpers.ts
+├── environment.ts
+├── helpers.tsx
 ├── index.tsx
 ├── redux
 │   ├── UI
@@ -186,6 +198,7 @@ src/
 │   └── store.ts
 ├── styles
 │   ├── _classes.scss
+│   ├── _fonts.scss
 │   ├── _mixins.scss
 │   ├── _variables.scss
 │   └── index.scss
@@ -203,6 +216,12 @@ The same js and css files should be assigned to the content of the confirmation 
 
 ```bash
 dist/
+.
+├── checkout-confirmation4-custom.css
+├── checkout-confirmation4-custom.css.map
+├── checkout-confirmation4-custom.js
+├── checkout-confirmation4-custom.js.LICENSE.txt
+├── checkout-confirmation4-custom.js.map
 ├── checkout6-custom.css
 ├── checkout6-custom.css.map
 ├── checkout6-custom.js
@@ -210,6 +229,75 @@ dist/
 ├── checkout6-custom.js.map
 └── index.html
 ```
+
+## Guide components 🍕
+
+To explain how this cancellation application works, the following components with which you can expand the rest of the sections and functionalities of the "Custom checkout app" application.
+
+### Client profile data
+
+```bash
+│   ├── ClientProfileData
+│   │   ├── ClientForm
+│   │   │   ├── index.tsx
+│   │   │   └── styles.scss
+│   │   ├── index.tsx
+│   │   └── styles.scss
+```
+
+![Client profile data empty](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-1.png)
+
+![Client profile data fill](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-1.png)
+
+### Toast
+
+```bash
+│   ├── SampleToast
+│   │   ├── SampleToast.module.scss
+│   │   └── index.tsx
+```
+
+![Toast](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-3.png)
+
+### Dialog
+
+```bash
+│   ├── StyledDialog
+│   │   ├── StyledDialogTitle
+│   │   │   ├── index.tsx
+│   │   │   └── styles.scss
+│   │   └── index.tsx
+```
+
+![Dialog](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-4.png)
+
+### Logo
+
+```bash
+│   ├── SampleLogo
+│   │   ├── SampleLogo.module.scss
+│   │   └── index.tsx
+```
+
+![Logo](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-5.png)
+
+## Debug changes locally with Charles proxy 💻
+
+To debug local changes you can use charles proxy as an option, below I show an example to map local files from charles proxy application.
+
+*As a help we leave you a general configuration guide of the application, keep in mind that it can change depending on the version you have of the application and also the operating system [Charles proxy settings](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/doc/charles-settings.pdf)*
+
+### Right click over the file what you want to map
+
+![Mapping local files](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/charles-1.png)
+
+### Select from your "Local path" the folder "dist" and choose the same file name you want to map
+
+![Mapping local files](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/charles-2.png)
+
+### As a final result you will have the files mapped and without any type of error or question symbol
+
+![Mapping local files](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/charles-3.png)
 
 ## Learn More 🛠️
 
@@ -219,6 +307,8 @@ dist/
 - [Babel](https://github.com/babel/babel-loader)
 - [Axios](https://github.com/axios/axios)
 - [Material UI](https://mui.com)
+- [Notistack](https://notistack.com/getting-started)
+- [Charles Proxy](https://www.charlesproxy.com/documentation/using-charles)
 - [Checkout Vtex](https://github.com/vtex/vtex.js/blob/master/docs/checkout/README.en.md)
 - [OrderForm Custom Data](https://developers.vtex.com/vtex-developer-docs/reference/orderform-fields#customdata)
 - [Update orderForm configuration](https://developers.vtex.com/vtex-developer-docs/reference/updateorderformconfiguration)

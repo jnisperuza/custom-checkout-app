@@ -1,0 +1,10 @@
+.sampleLogo {
+    position: relative;
+    display: block;
+    width: 180px;
+    height: auto;
+
+    img {
+        pointer-events: none;
+    }
+}

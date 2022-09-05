@@ -1,0 +1,12 @@
+@import '../../styles/classes';
+
+.sampleDialog {
+  .trigger {
+    @extend .PrimaryButton;
+    width: 100px;
+
+    &::after {
+      content: 'Dialog';
+    }
+  }
+}

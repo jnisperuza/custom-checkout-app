@@ -2,9 +2,7 @@ import { ReactNode } from 'react';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
-import Title from './Title';
-
-import styles from './StyledDialog.module.scss';
+import StyledDialogTitle from './StyledDialogTitle';
 
 export interface StyledDialogProps {
     open: boolean;
@@ -29,6 +27,9 @@ const CustomDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
+/**
+ * https://mui.com/material-ui/react-dialog/
+ */
 const StyledDialog = (props: StyledDialogProps) => {
     const {
         open,
@@ -41,22 +42,20 @@ const StyledDialog = (props: StyledDialogProps) => {
     } = props;
 
     return (
-        <div className={styles.content}>
-            <CustomDialog
-                aria-labelledby="styled-dialog"
-                open={open}
-                onClose={onClose}
-                className={className}
-                PaperProps={{ sx: { width, height, maxWidth: width } }}
-            >
-                <Title id="customized-dialog-title" onClose={onClose}>
-                    {title}
-                </Title>
-                <DialogContent dividers>
-                    {children}
-                </DialogContent>
-            </CustomDialog>
-        </div>
+        <CustomDialog
+            aria-labelledby="styled-dialog"
+            open={open}
+            onClose={onClose}
+            className={`styledDialog__${className}`}
+            PaperProps={{ sx: { width, height, maxWidth: width } }}
+        >
+            <StyledDialogTitle id="customized-dialog-title" onClose={onClose}>
+                {title}
+            </StyledDialogTitle>
+            <DialogContent dividers>
+                {children}
+            </DialogContent>
+        </CustomDialog>
     )
 }
 

@@ -1,3 +1,8 @@
-.checkout-header {
+/** 
+    The default class name for the Header is "container", 
+    however it is recommended to use "checkout-header", editing from vtex admin checkout-header HTML Template.
+*/
+
+.container {
     display: block;
 }

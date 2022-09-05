@@ -1,4 +1,11 @@
 .cart-more-options {
-  /** Add your styles */
+  /** Here you can implement the overwrite styles */
+
   display: block;
+
+  .sample-dialog-container,
+  .sample-toast-container {
+    display: inline-block;
+    margin-left: 10px;
+  }
 }

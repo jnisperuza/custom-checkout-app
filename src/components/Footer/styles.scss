@@ -1,3 +1,8 @@
-.checkout-footer {
+/** 
+    The default class name for the Footer is "container", 
+    however it is recommended to use "checkout-footer", editing from vtex admin checkout-footer HTML Template.
+*/
+
+.container {
     display: block;
 }

@@ -1,0 +1,10 @@
+@import "../../styles/classes";
+
+.sampleToast {
+    @extend .PrimaryButton;
+    width: 100px;
+
+    &::after {
+        content: "Toast";
+    }
+}

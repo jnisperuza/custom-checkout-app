@@ -1,4 +1,7 @@
+import { ReactNode } from "react";
+import ReactDOM from "react-dom";
 import { COUNTRY_DATA_MAPPED, INTL } from "./constants";
+import ProviderContext from "./HOC/ProviderContext";
 
 declare let vtexjs: any;
 
@@ -135,4 +138,20 @@ export const getLocation = (stateName: string, cityName: string) => {
 
 export const getPostalCode = (stateName: string, cityName: string) => {
     return getLocation(stateName, cityName)?.city?.code;
+}
+
+/**
+ * @name renderComponent
+ * @param component ReactNode
+ * @param container HTML Element
+ */
+export const renderComponent = (component: ReactNode, container: Element) => {
+    if (container && component) {
+        ReactDOM.render(
+            <ProviderContext>
+                {component}
+            </ProviderContext>,
+            container
+        );
+    }
 }

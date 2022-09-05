@@ -2,19 +2,19 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-import styles from './Title.module.scss';
+import './styles.scss';
 
-const Title = (props: any) => {
+const StyledDialogTitle = (props: any) => {
     const { children, onClose, ...other } = props;
 
     return (
-        <DialogTitle className={styles.content} {...other}>
+        <DialogTitle className="styledDialogTitle" {...other}>
             {children}
             {onClose ? (
                 <IconButton
                     aria-label="close"
                     onClick={onClose}
-                    className={styles.closeBtn}
+                    className="styledDialogTitle__closeBtn"
                 >
                     <CloseIcon />
                 </IconButton>
@@ -23,4 +23,4 @@ const Title = (props: any) => {
     );
 };
 
-export default Title;
+export default StyledDialogTitle;
