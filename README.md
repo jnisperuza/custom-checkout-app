@@ -247,7 +247,7 @@ To explain how this cancellation application works, the following components wit
 
 ![Client profile data empty](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-1.png)
 
-![Client profile data fill](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-1.png)
+![Client profile data fill](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/sample-2.png)
 
 ### Toast
 
@@ -285,7 +285,7 @@ To explain how this cancellation application works, the following components wit
 
 To debug local changes you can use charles proxy as an option, below I show an example to map local files from charles proxy application.
 
-*As a help we leave you a general configuration guide of the application, keep in mind that it can change depending on the version you have of the application and also the operating system [Charles proxy settings](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/doc/charles-settings.pdf)*
+*As a help we leave you a general configuration guide of the application, keep in mind that it can change depending on the version you have of the application and also the operating system [Charles proxy settings](https://github.com/jnisperuza/custom-checkout-app/blob/main/assets/doc/charles-settings.pdf)*
 
 ### Right click over the file what you want to map
 
