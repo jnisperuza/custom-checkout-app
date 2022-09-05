@@ -2,7 +2,7 @@
 
 The *custom checkout app* is a React app responsible for overwriting vtex native **[Checkout v6](https://help.vtex.com/tutorial/enable-checkout-v6--7qVqv3ptRvpVVplrvg8ruH)** editing and deploying files through the admin's interface.
 This project allows you to customize the native VTEX checkout, generating the files that you can later replace from the administration console of your VTEX store. `https://{accountName}.myvtex.com/admin/portal/#/sites/default/code`.
-Through a proxy software you can map the local files with which you can see the changes you make in development mode before updating your store's checkout.
+Through a proxy software you can map the local files with which you can see the changes you make in development mode before updating your store's checkout. [Checkout UI Custom app, Checkout Customizer]
 
 From the scope of the VTEX checkout you have access to the following objects:
 
