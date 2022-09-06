@@ -54,12 +54,21 @@ const start = () => {
       .then((res) => res.json())
       .catch((error) => {
         preloader.classList.remove('display');
-        console.error('Error:', error);
+        console.error(error);
         alert(error);
       })
       .then((response) => {
-        process(response?.data);
+        // Close preloader
         preloader.classList.remove('display');
+        // When there are errors in the response
+        if (response?.data?.code) {
+          const error = JSON.stringify(response.data);
+          console.error(error);
+          alert(error);
+        } else {
+          // Process success and error list of files
+          process(response?.data);
+        }
       });
   }
 };

@@ -3,6 +3,16 @@
 const fs = require('fs'),
   axios = require('axios');
 
+const getPathSeparator = () => {
+  if (/^win/.test(process.platform)) {
+    return '\\';
+  } else if (process.platform === 'darwin') {
+    return '/';
+  } else if (process.platform === 'linux') {
+    return '/';
+  }
+};
+
 const readFiles = (dist, environment, cookie) => {
   return new Promise((resolve) => {
     fs.readdir(`${dist}`, (err, data) => {
@@ -43,20 +53,23 @@ const readFiles = (dist, environment, cookie) => {
               })
               .finally(() => {
                 currentPosition += 1;
-                
+
                 if (numberFiles === currentPosition) {
                   resolve(response);
                 }
               });
           });
         });
+      } else {
+        resolve(err);
       }
     });
   });
 };
 
 exports.create = async (req, res) => {
-  const path = __dirname.split('/');
+  /** Fix bug for reading path on different operating systems */
+  const path = __dirname.split(getPathSeparator());
   const dist = `${path.slice(0, path.length - 3).join('/')}/dist/`;
   const { environment, cookie } = req.body;
 

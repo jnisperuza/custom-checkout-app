@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -46,7 +47,10 @@ const StyledDialog = (props: StyledDialogProps) => {
             aria-labelledby="styled-dialog"
             open={open}
             onClose={onClose}
-            className={`styledDialog__${className}`}
+            className={clsx(
+                'styledDialog',
+                { [`styledDialog__${className}`]: !!className }
+            )}
             PaperProps={{ sx: { width, height, maxWidth: width } }}
         >
             <StyledDialogTitle id="customized-dialog-title" onClose={onClose}>

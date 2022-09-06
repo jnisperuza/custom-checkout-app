@@ -6,10 +6,10 @@ axiosInstance.interceptors.response.use(
     (response) => response,
     (error) => {
         if (error?.toJSON()?.message.includes('Network')) {
-            alert('No hay comunicación con el servidor');
+            alert('There is no communication with the server.');
         }
         if (error?.response?.status === 500) {
-            alert('Error interno del servidor');
+            alert('Internal Server Error');
         }
         // Do something with request error
         return Promise.reject(error);

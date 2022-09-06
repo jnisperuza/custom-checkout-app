@@ -28,14 +28,19 @@
             <label for="environment" class="required">Environment</label>
             <select id="environment">
               <option
-                value="https://{{accountName}}.myvtex.com/api/portal/pvt/sites/default/files"
+                value="https://newmovilidadco.myvtex.com/api/portal/pvt/sites/newmovilidadco/files"
               >
-                QA Sample
+                newmovilidadco (DEV)
               </option>
               <option
-                value="https://{{accountName}}.myvtex.com/api/portal/pvt/sites/default/files"
+                value="https://testmovilidadco.myvtex.com/api/portal/pvt/sites/default/files"
               >
-                Production Sample
+                testmovilidadco (QA)
+              </option>
+              <option
+                value="https://movilidadco.myvtex.com/api/portal/pvt/sites/default/files"
+              >
+                movilidadco (PROD)
               </option>
             </select>
           </div>
@@ -51,12 +56,16 @@
           <legend>Output</legend>
           <div class="output-panel">
             <div class="wrapper">
-                <label for="success-list">Successfull <span id="success-number"></span></label>
-                <ul id="success-list"></ul>
+              <label for="success-list"
+                >Successfull <span id="success-number"></span
+              ></label>
+              <ul id="success-list"></ul>
             </div>
             <div class="wrapper">
-                <label for="error-list">Error <span id="error-number"></span></label>
-                <ul id="error-list"></ul>
+              <label for="error-list"
+                >Error <span id="error-number"></span
+              ></label>
+              <ul id="error-list"></ul>
             </div>
           </div>
         </fieldset>

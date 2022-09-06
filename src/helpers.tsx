@@ -144,8 +144,9 @@ export const getPostalCode = (stateName: string, cityName: string) => {
  * @name renderComponent
  * @param component ReactNode
  * @param container HTML Element
+ * @description Is used to inject our React code into the DOM for rendering with providers context
  */
-export const renderComponent = (component: ReactNode, container: Element) => {
+ export const renderComponent = (component: ReactNode, container: Element) => {
     if (container && component) {
         ReactDOM.render(
             <ProviderContext>

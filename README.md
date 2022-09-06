@@ -310,6 +310,12 @@ To debug local changes you can use charles proxy as an option, below I show an e
 
 ![Mapping local files](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/charles-3.png)
 
+## Deploy Checkout App ☁️
+
+This application needs a Vtex admin cookie as input, to choose an environment and click the "Submit" button.
+
+![Deploy checkout app](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/deploy-checkout-app.png)
+
 ## Learn More 🛠️
 
 - [React](https://es.reactjs.org/docs/getting-started.html)
