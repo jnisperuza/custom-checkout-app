@@ -444,12 +444,19 @@ interface OrderGroup extends OrderForm {
 
 type SUMMARY_MODE = 'totalizer' | 'summary' | 'payment_summary';
 
+// City
 interface CountryItemCity {
-    city: string;
+    name: string;
     code: string;
 }
 
+// State
 interface CountryItem {
-    state: string;
+    name: string;
     cities: CountryItemCity[];
+}
+
+interface CountryLocation {
+    state: CountryItem;
+    city: CountryItemCity;
 }

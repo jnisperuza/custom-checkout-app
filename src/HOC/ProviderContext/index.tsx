@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
+import Alert from '@mui/material/Alert';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarKey, SnackbarProvider } from 'notistack';
 import store from '../../redux/store';
 import theme from '../../theme';
-import Alert from '@mui/material/Alert';
 
 interface ProviderContextProps {
     children: ReactNode;

@@ -86,13 +86,18 @@ export const isMobile = () => {
  * @param text {string}
  * @returns {string} returns a text string without accents and without punctuation marks.
  */
-export const cleanString = (text: string): string => {
+ export const cleanString = (text: string): string => {
     if (!text) return;
     return text.normalize("NFD")
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-zA-Z0-9 ]/g, '');
 }
 
+/**
+ * 
+ * @param text string
+ * @returns string
+ */
 export const getLongestPartOfText = (text: string): string => {
     const chunks = text.split(' ');
     return chunks.reduce(function (prev, current) {
@@ -100,34 +105,75 @@ export const getLongestPartOfText = (text: string): string => {
     });
 }
 
-export const getState = (stateName: string) => {
+/**
+ * 
+ * @param stateName string
+ * @returns CountryItem
+ */
+export const getState = (stateName: string): CountryItem => {
     if (!stateName) return;
 
     const keyword = getLongestPartOfText(stateName);
-    return COUNTRY_DATA_MAPPED.find(
-        item => cleanString(item.state).toLowerCase().includes(cleanString(keyword).toLowerCase())
+    const stateList = COUNTRY_DATA_MAPPED.filter(
+        item => cleanString(item.name).toLowerCase().includes(cleanString(keyword).toLowerCase())
     );
+    return stateList.reduce(function (a, b) {
+        return a.name.indexOf(keyword) <= b.name.indexOf(keyword) ? a : b;
+    });
 }
 
-export const getCity = (cities: CountryItemCity[], cityName: string) => {
+/**
+ * 
+ * @param cities CountryItemCity[]
+ * @param cityName string
+ * @returns CountryItemCity
+ */
+export const getCity = (cities: CountryItemCity[], cityName: string): CountryItemCity => {
     if (!cities || !cityName) return;
 
     const keyword = getLongestPartOfText(cityName);
-    return cities.find(
-        item => cleanString(item.city).toLowerCase().includes(cleanString(keyword).toLowerCase())
-    )
+    const cityList = cities.filter(
+        item => cleanString(item.name).toLowerCase().includes(cleanString(keyword).toLowerCase())
+    );
+    return cityList.reduce(function (a, b) {
+        return a.name.indexOf(keyword) <= b.name.indexOf(keyword) ? a : b;
+    });
 }
 
-export const getLocationByCity = (cityName: string) => {
+/**
+ * 
+ * @param cityName string
+ * @description Returns a list of states containing at least one city name as a param
+ * @returns CountryLocation[]
+ */
+export const getLocationByCity = (cityName: string): CountryLocation[] => {
     if (!cityName) return;
 
     const keyword = getLongestPartOfText(cityName);
-    return COUNTRY_DATA_MAPPED.find(
-        item => item.cities.find(_item => cleanString(_item.city).toLowerCase().includes(cleanString(keyword).toLowerCase()))
-    );
+    return COUNTRY_DATA_MAPPED.filter(
+        item => {
+            const cityList = item.cities.filter(
+                _item => cleanString(_item.name).toLowerCase().includes(cleanString(keyword).toLowerCase())
+            );
+            return cityList.length && cityList.reduce(function (a, b) {
+                return a.name.indexOf(keyword) <= b.name.indexOf(keyword) ? a : b;
+            });
+        }
+    ).map((item: CountryItem) => ({
+        state: item,
+        city: item.cities.find(
+            _item => cleanString(_item.name).toLowerCase().includes(cleanString(keyword).toLowerCase())
+        )
+    }));
 }
 
-export const getLocation = (stateName: string, cityName: string) => {
+/**
+ * 
+ * @param stateName string
+ * @param cityName string
+ * @returns CountryLocation
+ */
+export const getLocation = (stateName: string, cityName: string): CountryLocation => {
     const state = getState(stateName);
 
     if (state) {
@@ -136,7 +182,13 @@ export const getLocation = (stateName: string, cityName: string) => {
     }
 }
 
-export const getPostalCode = (stateName: string, cityName: string) => {
+/**
+ * 
+ * @param stateName string
+ * @param cityName string
+ * @returns string
+ */
+export const getPostalCode = (stateName: string, cityName: string): string => {
     return getLocation(stateName, cityName)?.city?.code;
 }
 
