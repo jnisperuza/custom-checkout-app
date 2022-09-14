@@ -1,3 +1,8 @@
+/**
+ * @name Vtex Address Form
+ * @description A React component that renders VTEX's address forms
+ * https://github.com/vtex/address-form/tree/1eb885b0970faa58950d555003aaae3814909c3e/react/country
+ */
 export default {
     Amazonas: {
         'El Encanto': '91263',
