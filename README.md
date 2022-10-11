@@ -243,7 +243,7 @@ dist/
 
 ## Guide components 🍕
 
-To explain how this cancellation application works, the following components with which you can expand the rest of the sections and functionalities of the "Custom checkout app" application.
+To explain how this checkout application works, the following components with which you can expand the rest of the sections and functionalities of the "Custom checkout app" application.
 
 ### Client profile data
 
