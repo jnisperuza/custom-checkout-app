@@ -25,6 +25,6 @@ describe('SampleToast tests', () => {
     });
     it('renders correctly', () => {
         const { container } = render(<SampleToast />);
-        expect(container).toMatchSnapshot();;
+        expect(container).toMatchSnapshot();
     });
 });

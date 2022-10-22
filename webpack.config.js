@@ -3,7 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = (env) => {
-  const envFileName = env.prod ? 'prod' : env.qa ? 'qa' : env.dev ? 'dev' : 'dev';
+  const envName = env.prod ? 'prod' : env.qa ? 'qa' : env.dev ? 'dev' : 'dev';
+  const isProd = envName === 'prod';
 
   return {
     mode: 'production',
@@ -11,7 +12,7 @@ module.exports = (env) => {
       ['checkout6-custom']: path.resolve(__dirname, './src/index.tsx'),
       ['checkout-confirmation4-custom']: path.resolve(__dirname, './src/index.tsx'),
     },
-    devtool: 'source-map',
+    devtool: !isProd ? 'source-map' : false,
     performance: {
       hints: false,
     },
@@ -70,7 +71,7 @@ module.exports = (env) => {
         filename: '[name].css',
       }),
       new Dotenv({
-        path: `environments/.${envFileName}.env`,
+        path: `environments/.${envName}.env`,
       }),
     ],
     output: {

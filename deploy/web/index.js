@@ -28,7 +28,7 @@ const start = () => {
   const cookie = document.getElementById('cookie');
 
   if (!environment?.value || !cookie?.value) {
-    alert('Falta diligenciar campos requeridos!');
+    alert('Missing required fields!');
     return;
   }
 

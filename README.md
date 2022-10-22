@@ -80,6 +80,8 @@ In the project directory, you can run:
 Builds the app for production to the `dist` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+***Command available with `:dev`, `:qa`, and `:prod`***
+
 ```bash
 npm run build
 ```
@@ -87,6 +89,8 @@ npm run build
 ### `Start`
 
 It works in the same way as build but additionally while you are modifying, It generating new files for the `dist` folder.
+
+***Command available with `:dev`, `:qa`, and `:prod`***
 
 ```bash
 npm run start
@@ -104,6 +108,8 @@ npm run test
 
 Initializes a local server on port 9000, it can be accessed as follows <http://localhost:9000/>. From here you can deploy your code. You just need to copy the vtex admin cookie header and paste it into the "Cookie" field.
 
+***Command available with `:dev`, `:qa`, and `:prod`***
+
 ```bash
 npm run deployapp
 ```
@@ -111,7 +117,7 @@ npm run deployapp
 ## Environments
 
 Inside the "environments" folder you can find the configuration files .dev.env, .qa.env, .prod.env, there you can add your environment variables.\
-With the previous commands and the command :dev, :qa, :product for instance:
+With the previous commands and the command `:dev`, `:qa`, and `:prod` for instance:
 
 ```bash
 npm run start:dev
@@ -312,7 +318,35 @@ To debug local changes you can use charles proxy as an option, below I show an e
 
 ## Deploy Checkout App ☁️
 
-This application needs a Vtex admin cookie as input, to choose an environment and click the "Submit" button.
+Before you run the `Deploy App` you must ensure updated environment file with you own trade policy in the property
+
+```bash
+REACT_APP_ENVIRONMENTS_URL: [{"name": "myvtex","value": "https://{accountName}.myvtex.com/admin/portal/#/sites/{devName}/code"}]
+```
+
+Other important aspect is that this application needs a Vtex admin cookie as input, to choose an environment and click the "Submit" button.
+
+### ***Steps to get the Vtex Administrator Cookie***
+
+1. Login to Vtex
+
+    ![Login to vtex](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/login-to-vtex.png)
+
+2. In the side menu look for the ***`STORE SETTINGS`*** and click on the option ***`Checkout`*** and then click on the engine icon
+
+    ![Click on checkout option](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/click-on-checkout-option.png)
+
+3. On the next view, you should click ***`Code`***
+
+    ![Click on code tab](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/click-on-code-tab.png)
+
+4. In this section you need to edit some file to get the cookie from the request as shown in the following image
+
+    ![Edit some file](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/edit-some-file.png)
+
+    ![Edit some file](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/copy-cookie-header.png)
+
+***`IMPORTANT`*** limit of size each file: 3Mb
 
 ![Deploy checkout app](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/deploy-checkout-app.png)
 
