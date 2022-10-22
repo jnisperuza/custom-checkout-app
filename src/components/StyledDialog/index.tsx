@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
-import { styled } from '@mui/material/styles';
+import styled from '@mui/material/styles/styled';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import StyledDialogTitle from './StyledDialogTitle';
