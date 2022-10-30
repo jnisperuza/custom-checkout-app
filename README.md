@@ -328,9 +328,9 @@ Other important aspect is that this application needs a Vtex admin cookie as inp
 
 ### ***Steps to get the Vtex Administrator Cookie***
 
-There're multiple form to get the cookie value, but just we'll mention two of them:
+There're multiple ways to get the cookie value, but only we'll mention two of them:
 
-#### First form
+#### First
 
 1. Login to Vtex
 
@@ -352,7 +352,7 @@ There're multiple form to get the cookie value, but just we'll mention two of th
 
 ![Deploy app Option 1](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/deploy-checkout-app.png)
 
-#### Second form
+#### Second
 
 If you use [Google Chrome](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) or [Opera](https://addons.opera.com/en/extensions/details/edit-this-cookie/) as a main browser, you could install an extension like a [EditThisCookie](https://www.editthiscookie.com/).
 
