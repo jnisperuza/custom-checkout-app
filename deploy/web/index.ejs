@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deploy Checkout App</title>
+  <title>Deploy App</title>
   <meta
       name="description"
       content="The custom checkout app is a React app responsible for overwriting vtex native Checkout v6 editing and deploying files through the admin's interface. This project allows you to customize the native VTEX checkout, generating the files that you can later replace from the administration console of your VTEX store. https://{accountName}.myvtex.com/admin/portal/#/sites/default/code. Through a proxy software you can map the local files with which you can see the changes you make in development mode before updating your store's checkout. [Checkout UI Custom app, Checkout Customizer], By: Jeison Nisperuza Frontend Engineer, System Engineer"
@@ -16,9 +16,8 @@
 
 <body>
   <header>
-    <h1>Deploy Checkout App</h1>
+    <h1>Deploy App</h1>
   </header>
-
   <main>
     <div id="preloader">
       <div></div>
@@ -26,7 +25,6 @@
     <section>
       <fieldset>
         <legend>Input</legend>
-
         <div class="row">
           <label for="environment" class="required">Environment</label>
           <select id="environment">
@@ -36,14 +34,23 @@
               </option>
               <% }) %>
           </select>
+          <button class="link" type="button" title="Open vtex admin in a new browser tab" onclick="openVtexAdmin()">
+            vtex admin
+          </button>
         </div>
+        <div class="radio-group">
+          <label><input type="radio" value="cookie" name="security" onchange="handleSecurityChange(this.value)" checked>Cookie</label>
+          <label><input type="radio" value="VtexIdclientAutCookie" name="security" onchange="handleSecurityChange(this.value)">VtexIdclientAutCookie</label>
+        </div>
+        <br>
         <div class="row">
-          <label for="cookie" class="required">Cookie</label>
-          <textarea id="cookie"></textarea>
+          <textarea id="cookie" name="security-content"></textarea>
+        </div>
+        <div class="row hidden">
+          <textarea id="VtexIdclientAutCookie" name="security-content"></textarea>
         </div>
       </fieldset>
     </section>
-
     <section>
       <fieldset>
         <legend>Output</legend>

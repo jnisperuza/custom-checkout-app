@@ -328,6 +328,10 @@ Other important aspect is that this application needs a Vtex admin cookie as inp
 
 ### ***Steps to get the Vtex Administrator Cookie***
 
+There're multiple form to get the cookie value, but just we'll mention two of them:
+
+#### First form
+
 1. Login to Vtex
 
     ![Login to vtex](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/login-to-vtex.png)
@@ -345,6 +349,18 @@ Other important aspect is that this application needs a Vtex admin cookie as inp
     ![Edit some file](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/edit-some-file.png)
 
     ![Edit some file](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/copy-cookie-header.png)
+
+#### Second form
+
+If you use [Google Chrome](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) or [Opera](https://addons.opera.com/en/extensions/details/edit-this-cookie/) as a main browser, you could install an extension like a [EditThisCookie](https://www.editthiscookie.com/).
+
+1. Open extension once you've had logged into de Vtex administrator and copy value:
+
+    ![Open extension EditThisCookie](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/EditThisCookie.png)
+
+2. Once you've chosen the second option you should paste cookie value as following image:
+
+    ![Paste cookie value](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/deploy-app.png)
 
 ***`IMPORTANT`*** limit of size each file: 3Mb
 

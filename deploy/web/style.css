@@ -6,6 +6,37 @@ body {
   box-sizing: border-box;
 }
 
+ /** Custom Scrollbar */
+ * {
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 1025px) and (max-width: 1280px), only screen and (min-width: 1281px) {
+  *::-webkit-scrollbar {
+    width: 8px;
+ }
+  *::-webkit-scrollbar-thumb {
+    background-color: #d3d4d9;
+    background-clip: padding-box;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+ }
+  *::-webkit-scrollbar-track {
+    background-color: transparent;
+ }
+  *::-webkit-scrollbar-button {
+    background-color: transparent;
+ }
+  * {
+    scrollbar-face-color: #d3d4d9;
+    scrollbar-shadow-color: transparent;
+    scrollbar-highlight-color: transparent;
+ }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d3d4d9 transparent;
+ }
+}
+
 main {
   display: block;
   position: relative;
@@ -95,6 +126,27 @@ button:focus {
   border: 1px solid #848d95;
 }
 
+.link {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  color: rgba(247, 25, 99, 0.9);
+  font-size: 12px;
+  outline: none;
+  border: none;
+}
+
+.link:hover,
+.link:focus {
+  border: none;
+  text-decoration: underline;
+  color: #f71963;
+}
+
+.hidden {
+  display: none !important;
+}
+
 .row {
   display: block;
   margin-bottom: 10px;
@@ -140,6 +192,20 @@ button:focus {
 
 .output-panel ul#error-list {
   color: #e20d25;
+}
+
+.radio-group {
+  display: inline-flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.radio-group label {
+  gap: 2.5px;
+}
+
+.radio-group label:has(input[type="radio"]:checked) {
+  color: #f71963;
 }
 
 #preloader {

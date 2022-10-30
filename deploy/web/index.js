@@ -22,12 +22,43 @@ const process = (data) => {
   });
 };
 
+const openVtexAdmin = () => {
+  const environment = document.getElementById('environment');
+
+  if (!environment?.value) {
+    return;
+  }
+
+  const url = environment.value
+    .replace("api", "admin")
+    .replace("pvt", "#")
+    .replace("files", "code");
+
+  window.open(url);
+}
+
+const handleSecurityChange = (value) => {
+  const securitySelectors = document.getElementsByName('security-content');
+  const securityContent = document.getElementById(value);
+
+  for (const element of securitySelectors) {
+      element.parentNode.classList.add('hidden');
+      element.value = '';
+  }
+
+  if (securityContent) {
+    securityContent.parentNode.classList.remove('hidden');
+    securityContent.focus();
+  }
+}
+
 const start = () => {
   const preloader = document.getElementById('preloader');
   const environment = document.getElementById('environment');
   const cookie = document.getElementById('cookie');
+  const VtexIdclientAutCookie = document.getElementById('VtexIdclientAutCookie');
 
-  if (!environment?.value || !cookie?.value) {
+  if (!environment?.value || (!cookie?.value && !VtexIdclientAutCookie?.value)) {
     alert('Missing required fields!');
     return;
   }
@@ -42,7 +73,16 @@ const start = () => {
     const data = {
       environment: environment?.value,
       cookie: cookie?.value,
+      VtexIdclientAutCookie: VtexIdclientAutCookie?.value,
     };
+
+    if (!cookie?.value) {
+      delete data.cookie;
+    }
+
+    if (!VtexIdclientAutCookie?.value) {
+      delete data.VtexIdclientAutCookie;
+    }
 
     fetch('/deploy', {
       method: 'POST',
