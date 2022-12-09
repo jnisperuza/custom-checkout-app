@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, useEffect } from 'react';
-import { Grid, TextField } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
 import clsx from 'clsx';
 
 import './styles.scss';
