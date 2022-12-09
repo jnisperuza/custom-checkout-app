@@ -65,7 +65,8 @@ input[type='color'],
   }
 }
 
-[class^='vtex-front-messages'] {
+// -> MessageUtils -> showMessage (Comment the following code to see vtex alerts)
+[class^="vtex-front-messages"]{
   display: none !important;
 }
 

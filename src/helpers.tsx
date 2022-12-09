@@ -86,7 +86,7 @@ export const isMobile = () => {
  * @param text {string}
  * @returns {string} returns a text string without accents and without punctuation marks.
  */
- export const cleanString = (text: string): string => {
+export const cleanString = (text: string): string => {
     if (!text) return;
     return text.normalize("NFD")
         .replace(/[\u0300-\u036f]/g, '')
@@ -198,7 +198,7 @@ export const getPostalCode = (stateName: string, cityName: string): string => {
  * @param container HTML Element
  * @description Is used to inject our React code into the DOM for rendering with providers context
  */
- export const renderComponent = (component: ReactNode, container: Element) => {
+export const renderComponent = (component: ReactNode, container: Element) => {
     if (container && component) {
         ReactDOM.render(
             <ProviderContext>
@@ -207,4 +207,27 @@ export const getPostalCode = (stateName: string, cityName: string): string => {
             container
         );
     }
+}
+
+/**
+ * 
+ * @param {string} selector It refer to the method how selector will found (#id, .class, pseudo-selector...)
+ * @description In charge to observe until the prefer element was added to the DOM
+ * @returns Promise
+ */
+export const isAdded = (selector: string, options: MutationObserverInit = { childList: true, subtree: true }) => {
+    if (!selector) return new Promise(() => { });
+
+    return new Promise((resolve) => {
+        const elementToObserve = document.querySelector("body");
+        const observer = new MutationObserver(() => {
+            const target = document.querySelector(selector);
+            if (target) {
+                resolve(target);
+                observer.disconnect();
+            }
+        });
+
+        observer.observe(elementToObserve, options);
+    });
 }

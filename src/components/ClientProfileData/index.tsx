@@ -2,7 +2,7 @@ import { Fragment, useEffect } from 'react';
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import Tooltip from '@mui/material/Tooltip';
-import { renderComponent, setStyle } from '../../helpers';
+import { isAdded, renderComponent, setStyle } from '../../helpers';
 import { setLoading } from '../../redux/UI/action';
 import { hash$ } from '../../redux/UI/selectors';
 import ClientForm, { ClientFormData } from './ClientForm';
@@ -18,14 +18,9 @@ const ClientProfileData = () => {
     const dispatch = useDispatch();
     const hash = useSelector(hash$);
 
-    let myInterval = null;
-
     useEffect(() => {
         if (hash) {
-            myInterval = setInterval(updateUI, 1000);
-        }
-        () => {
-            myInterval && clearInterval(myInterval);
+            updateUI();
         }
     }, [hash]);
 
@@ -50,15 +45,12 @@ const ClientProfileData = () => {
         }, 500);
     }, [hash]);
 
-    const updateUI = () => {
-        const accordionToggle = document.querySelector('#client-profile-data .accordion-toggle') as HTMLElement;
+    const updateUI = async () => {
+        const accordionToggle = await isAdded('#client-profile-data .accordion-toggle') as HTMLElement;
         const iconEdit = accordionToggle?.querySelector('.icon-edit') as HTMLElement;
         const iconUser = accordionToggle?.querySelector('.icon-user') as HTMLElement;
 
-        if (myInterval && iconEdit?.style?.backgroundImage && iconUser?.style?.backgroundImage) {
-            clearInterval(myInterval);
-            dispatch(setLoading(false));
-        }
+        dispatch(setLoading(false));
 
         const commonPropsImg = {
             backgroundSize: "auto",

@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { renderComponent } from '../../helpers';
+import { isAdded, renderComponent } from '../../helpers';
 import { hash$ } from '../../redux/UI/selectors';
 import SampleDialog from '../SampleDialog';
 import SampleToast from '../SampleToast';
@@ -12,27 +12,14 @@ const CartMoreOptions = () => {
 
     const hash = useSelector(hash$);
 
-    let myInterval = null;
-
     useEffect(() => {
-        if (hash) {
-            myInterval = setInterval(updateUI, 1000);
-        }
-        () => {
-            myInterval && clearInterval(myInterval);
+        if (hash == 'cart') {
+            addSampleContainers();
         }
     }, [hash]);
 
-    const updateUI = () => {
-        if (hash === 'cart') {
-            addSampleContainers();
-            renderSampleToast();
-            renderSampleDialog();
-        }
-    }
-
-    const addSampleContainers = () => {
-        const srpData = document.querySelector('.cart-more-options #shipping-preview-container .srp-content .srp-data');
+    const addSampleContainers = async () => {
+        const srpData = await isAdded('.cart-more-options #shipping-preview-container .srp-content .srp-data') as HTMLElement;
         const sampleToastContainer = srpData?.querySelector('.sample-toast-container');
         const sampleDialogContainer = srpData?.querySelector('.sample-dialog-container');
 
@@ -41,6 +28,7 @@ const CartMoreOptions = () => {
                 "beforeend",
                 `<div class="sample-toast-container"></div>`
             );
+            setTimeout(() => renderSampleToast());
         }
 
         if (srpData && !sampleDialogContainer) {
@@ -48,6 +36,7 @@ const CartMoreOptions = () => {
                 "beforeend",
                 `<div class="sample-dialog-container"></div>`
             );
+            setTimeout(() => renderSampleDialog());
         }
     }
 
