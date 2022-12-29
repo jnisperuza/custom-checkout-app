@@ -33,7 +33,7 @@ const Header = () => {
                 case 'payment':
                 case 'profile':
                 case 'shipping':
-                    console.info(hash);
+                    console.info("With this hash you could dispatch some redux actions: ", hash);
                     break;
                 case 'email':
                     console.warn("Unauthenticated, make a decision.");

@@ -50,14 +50,15 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.16.7",
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/icons-material": "^5.2.5",
-    "@mui/lab": "^5.0.0-alpha.63",
-    "@mui/material": "^5.2.7",
-    "@mui/styles": "^5.2.3",
-    "@mui/system": "^5.2.6",
-    "@mui/utils": "^5.2.3",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/lab": "^5.0.0-alpha.114",
+    "@mui/material": "^5.11.2",
+    "@mui/styles": "^5.11.2",
+    "@mui/system": "^5.11.2",
+    "@mui/utils": "^5.11.2",
+    "@reduxjs/toolkit": "^1.9.1",
     "@types/react-redux": "^7.1.21",
     "@types/underscore": "^1.11.4",
     "axios": "^0.24.0",
@@ -73,8 +74,7 @@
     "open": "^8.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-redux": "^7.2.6",
-    "redux-devtools-extension": "^2.13.9",
+    "react-redux": "^8.0.5",
     "regenerator-runtime": "^0.13.9"
   }
 }
