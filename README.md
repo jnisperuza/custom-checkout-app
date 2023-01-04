@@ -8,15 +8,15 @@ From the scope of the VTEX checkout you have access to the following objects:
 
 **Important**: To use the vtexjs global variable from TypeScript files, it is recommended to declare this variable inside the component, to avoid linter errors.
 
-```bash
+```javascript
 declare let vtexjs: any;
 ```
 
-```bash
+```javascript
 vtexjs.checkout.getOrderForm().then((orderForm) => {});
 ```
 
-```bash
+```javascript
 const item = {
     id: 1001,
     quantity: 1,
@@ -26,19 +26,19 @@ const item = {
 vtexjs.checkout.addToCart([item], null, 1).then((orderForm) => {});
 ```
 
-```bash
+```javascript
 vtexjs.checkout.setCustomData({});
 ```
 
-```bash
+```javascript
 vtexjs.checkout.removeItems([{ index, quantity: 0 }]);
 ```
 
-```bash
+```javascript
 vtexjs.checkout.removeAllItems(orderForm.items).then((orderForm) => {});
 ```
 
-```bash
+```javascript
 vtexjs.checkout.sendAttachment('KEY_NAME', {});
 ```
 
@@ -46,7 +46,7 @@ vtexjs.checkout.sendAttachment('KEY_NAME', {});
 
 This page consumes the data of the request through a queryParam called og to display it in the default template, to directly access the data you can do it by reading the global variable:
 
-```bash
+```javascript
 dataLayer
 ```
 
