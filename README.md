@@ -51,7 +51,7 @@ dataLayer
 ```
 
 However, you can also consult the data of the order from the following official vtex endpoint
-[Get Order](https://developers.vtex.com/vtex-developer-docs/reference/getorder#response-body-example)
+[Get Order](https://developers.vtex.com/docs/api-reference/orders-api#get-/api/oms/pvt/orders/-orderId-)
 
 ## Libraries with global Scope
 
@@ -330,7 +330,7 @@ Other important aspect is that this application needs a Vtex admin cookie as inp
 
 There're multiple ways to get the cookie value, but only we'll mention two of them:
 
-#### First
+#### The first option:
 
 1. Login to Vtex
 
@@ -352,7 +352,7 @@ There're multiple ways to get the cookie value, but only we'll mention two of th
 
 ![Deploy app Option 1](https://cdn.statically.io/gh/jnisperuza/custom-checkout-app/main/assets/images/deploy-checkout-app.png)
 
-#### Second
+#### The second one
 
 If you use [Google Chrome](https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg?hl=en) or [Opera](https://addons.opera.com/en/extensions/details/edit-this-cookie/) as a main browser, you could install an extension like a [EditThisCookie](https://www.editthiscookie.com/).
 
@@ -366,7 +366,7 @@ If you use [Google Chrome](https://chrome.google.com/webstore/detail/editthiscoo
 
 ## Learn More 🛠️
 
-- [React](https://es.reactjs.org/docs/getting-started.html)
+- [React](https://react.dev/reference/react)
 - [Webpack](https://webpack.js.org/configuration)
 - [Sass](https://sass-lang.com)
 - [Babel](https://github.com/babel/babel-loader)
@@ -375,12 +375,12 @@ If you use [Google Chrome](https://chrome.google.com/webstore/detail/editthiscoo
 - [Notistack](https://notistack.com/getting-started)
 - [Charles Proxy](https://www.charlesproxy.com/documentation/using-charles)
 - [Checkout Vtex](https://github.com/vtex/vtex.js/blob/master/docs/checkout/README.en.md)
-- [OrderForm Custom Data](https://developers.vtex.com/vtex-developer-docs/reference/orderform-fields#customdata)
+- [OrderForm Custom Data](https://developers.vtex.com/docs/guides/add-and-handle-custom-information-in-the-order)
 - [Update orderForm configuration](https://developers.vtex.com/vtex-developer-docs/reference/updateorderformconfiguration)
-- [Add client profile](https://developers.vtex.com/vtex-rest-api/reference/addclientprofile)
+- [Add client profile](https://developers.vtex.com/docs/api-reference/checkout-api#post-/api/checkout/pub/orderForm/-orderFormId-/attachments/clientProfileData)
 - [CMS - Creating and editing a page template](https://help.vtex.com/tutorial/how-to-create-a-page-template--frequentlyAskedQuestions_1850)
 - [Checkout customization guide](https://developers.vtex.com/vtex-rest-api/docs/checkout-customization-guide)
-- [Customizing the Checkout Confirmation pages](https://help.vtex.com/tutorial/customizing-the-checkout-confirmation-pages--7CbAZNHGI8uUO8aSgWmcsS)
+- [Customizing the Checkout Confirmation pages](https://developers.vtex.com/docs/guides/customize-checkout-confirmation-pages)
 
 ## Author ✒️
 
